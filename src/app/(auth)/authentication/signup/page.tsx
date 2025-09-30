@@ -120,7 +120,7 @@ export default function SignUpPage() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="name">
-                <Form.Label>نام و نام خانوادگی (اختیاری)</Form.Label>
+                <Form.Label>نام و نام خانوادگی </Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="مثال: صُمیه صفوی"
@@ -129,7 +129,7 @@ export default function SignUpPage() {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="mobile" >
-                <Form.Label>موبایل (اختیاری)</Form.Label>
+                <Form.Label>موبایل </Form.Label>
                 <Form.Control
                   type="tel"
                   placeholder="0919*******"
