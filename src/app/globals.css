@@ -40,3 +40,33 @@ a {
     color-scheme: dark;
   }
 }
+
+.table-modern thead th {
+  font-weight: 600;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.table-modern tbody td {
+  vertical-align: middle;
+}
+
+.orders-table-wrapper {
+  max-height: 68vh;
+  overflow: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.table-modern thead.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.table-modern tbody tr:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.badge {
+  font-weight: 500;
+}
