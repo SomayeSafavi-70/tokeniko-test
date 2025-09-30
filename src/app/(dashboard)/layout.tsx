@@ -1,13 +1,35 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import NavbarVertical from "./_components/navbars/NavbarVertical";
 import NavbarTop from "./_components/navbars/NavbarTop";
 
+const LS_TOKEN_KEY = "auth_token";
+const LS_USER_KEY = "auth_user";
+
 const DashboardLayout = (props: any) => {
   const [showMenu, setShowMenu] = useState(true);
-  const ToggleMenu = () => {
-    return setShowMenu(!showMenu);
-  };
+  const [isChecking, setIsChecking] = useState(true);
+  const router = useRouter();
+
+  const ToggleMenu = () => setShowMenu(!showMenu);
+
+  useEffect(() => {
+    const token = localStorage.getItem(LS_TOKEN_KEY);
+    const user = localStorage.getItem(LS_USER_KEY);
+
+    if (!token || !user) {
+      router.replace("/authentication/signin");
+    } else {
+      setIsChecking(false);
+    }
+  }, [router]);
+
+  if (isChecking) {
+    return <div className="p-5 text-center">در حال بررسی اطلاعات کاربر...</div>;
+  }
+
   return (
     <div id="db-wrapper" className={`${showMenu ? "" : "toggled"}`}>
       <div className="navbar-vertical navbar">
@@ -30,4 +52,5 @@ const DashboardLayout = (props: any) => {
     </div>
   );
 };
+
 export default DashboardLayout;
